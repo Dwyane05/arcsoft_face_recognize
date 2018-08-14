@@ -1,0 +1,46 @@
+////////////////////////////////////////////////////////////////////////
+//              Arcsoft FaceDetection Free SDK   	      	      //
+////////////////////////////////////////// /////////////////////////////
+
+Introduction:
+This SDK do Face Detect
+
+Publish Date:
+06/08/2018
+
+Version:
+1.1.0.215
+
+Supported Platform:
+LINUX64
+
+Compile options:
+-O2 -c -Wall -std=c++11 -fPIC -m64 -ffunction-sections
+
+Known Issues:
+None.
+
+Library Dependency
+
+File List:
+|----doc
+|    |----ARCSOFT_FACEDETECTION_DEVELOPER'S_GUIDE.pdf			               Developer's Guide	
+|    |----releasenotes.txt
+|----inc
+|    |----arcsoft_fsdk_face_detection.h									
+|    |----amcomdef.h																	
+|    |----asvloffscreen.h							
+|    |----merror.h								
+|----lib
+|    |----linux_x64                                               Face Detection lib
+|    |    |-libarcsoft_fsdk_face_detection.so								
+|----samplecode  
+|    |----arcsoft_afd_samplecode.cpp	
+
+Limitation:
+1. input image's width & height must be divisible by 2
+
+
+Change Logs:
+1.0: initial version
+	
