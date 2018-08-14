@@ -7,7 +7,7 @@ CFLAGS += -O2 -c -Wall -std=c++11 -fPIC -m64 -ffunction-sections
 CFLAGS += -I${PWD}/include
 #LDFLAGS += -larcsoft_fsdk_age_estimation -L${PWD}/lib/linux_x64
 LDFLAGS += -larcsoft_fsdk_face_detection
-
+LDFLAGS += -lrt -lpthread -ldl -lopencv_core -lopencv_highgui -lopencv_imgcodecs -lopencv_videoio -lopencv_imgproc -lopencv_xfeatures2d -lopencv_features2d -lopencv_flann -lopencv_calib3d -lopencv_ml
 src := src/arcsoft_face.cpp 
 
 objects=$(patsubst %.cpp,%.o, $(src))
