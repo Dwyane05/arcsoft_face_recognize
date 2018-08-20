@@ -1,0 +1,9 @@
+HOW TO COMPILE:
+1. Compiler
+make 
+or
+cd src
+make
+
+2. clean project
+make clean
