@@ -5,8 +5,8 @@
  *      Author: cui
  */
 
-#ifndef SRC_FACEDETECT_FACEDETECT_H_
-#define SRC_FACEDETECT_FACEDETECT_H_
+#ifndef S_FACEDETECT_H_
+#define _FACEDETECT_H_
 
 #include <opencv2/opencv.hpp>
 #include "arcsoft_fsdk_face_detection.h"

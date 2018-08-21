@@ -39,7 +39,7 @@ bool facedetect::facedetect_init()
 		err_quit("face detect init error: fail to malloc workbuf\r\n");
 	}
 
-	int ret = AFD_FSDK_InitialFaceEngine(APPID, FD_SDKKEY, pWorkMem, FD_WORKBUF_SIZE,
+	int ret = AFD_FSDK_InitialFaceEngine((MPChar)APPID, (MPChar)FD_SDKKEY, pWorkMem, FD_WORKBUF_SIZE,
 										 &hEngine, AFD_FSDK_OPF_0_HIGHER_EXT, nscale, max_face_number );
 	if (ret != 0) {
 		switch(ret){
