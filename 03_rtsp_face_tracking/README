@@ -1,0 +1,15 @@
+HOW TO COMPILE:
+1. Compiler
+make 
+or
+cd src
+make
+
+2. clean project
+make clean
+
+
+
+###########################################
+当前程序是使用facetracking库来检测人脸框的
+
