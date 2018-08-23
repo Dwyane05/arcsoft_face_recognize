@@ -20,10 +20,15 @@ enum linux_support_fmt{
 #define	PIXEL_FORMAT	I420
 /*******************************************
  * 测试使用数据格式：RGB24_B8G8R8	时，人脸匹配度低一点(0.674384)
-				使用I420格式时，匹配度高一点(0.707299)
+				使用I420格式时，匹配度高一点(0.707299)		rtsp原始码流格式
 				NV12:待验证
         		NV21:待验证
-        		YUYV:待验证
+        		YUYV:待验证  属于422，应该匹配度会更高
+
+        		I420: YYYYYYYY UU VV    =>YUV420P
+				YV12: YYYYYYYY VV UU    =>YUV420P
+				NV12: YYYYYYYY UVUV     =>YUV420SP
+				NV21: YYYYYYYY VUVU     =>YUV420SP
  *******************************************/
 
 

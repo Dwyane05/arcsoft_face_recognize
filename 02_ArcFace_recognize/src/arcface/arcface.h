@@ -69,7 +69,7 @@ public:
     void    arc_stop();
     int     build_feature_list(string path);
     face_idx_score     get_faceID_score(Mat& img);
-//    vector<string>     GetFileNameVec(){return filenames_vec;};
+    vector<string>     GetFileNameVec(){return filenames_vec;};
     vector<string>     list_target_files(string path);
     void arcface_getversion();
 };

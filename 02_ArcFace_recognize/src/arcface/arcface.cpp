@@ -23,7 +23,7 @@
 #include "config.h"
 #include "joinus.h"
 
-#define DBG_EN 	0
+#define DBG_EN 	1
 #if (DBG_EN == 1)
 #define printf_dbg(...) 	fprintf(stderr, "[arcface_dbg](%s, %s(), %d): ", __FILE__, __FUNCTION__, __LINE__); fprintf(stderr, __VA_ARGS__)
 #else
@@ -60,7 +60,7 @@ arcface::~arcface()
 	if(nullptr != pWorkMem_FD) free(pWorkMem_FD);
 	if(nullptr != pWorkMem_FR) free(pWorkMem_FR);
 	for(unsigned int i = 0; i < face_models_vec.size(); i++){
-		if(face_models_vec.at(i).pbFeature == nullptr)
+		if(face_models_vec.at(i).pbFeature != nullptr)
 		{
 			free(face_models_vec.at(i).pbFeature);
 			face_models_vec.at(i).pbFeature = nullptr;

@@ -14,6 +14,7 @@
 #include <iostream>
 
 #include "arcface.h"
+#include "csv_writer.h"
 
 #include "joinus.h"
 
@@ -58,20 +59,20 @@ int main(int argc, char* argv[]) {
         face_idx_score tis = face_instance.get_faceID_score(tt);
         testresult.push_back(tis);
     }
-//    //5 write the result to csv file
-//    CSVWriter csv;
-//    csv.enableAutoNewRow(3);
-//    csv << "被测图像名称" << "识别结果"<<"得分";
-//    for(int i =0; i<testresult.size(); i++)
-//    {
-//        string fname = testlist.at(i);
-//        int idx = testresult.at(i).idx;
-//        string resultfname = face_instance.GetFileNameVec().at(idx);
-//        float sco = testresult.at(i).score;
-//        csv << fname << resultfname << sco;
-//    }
-//    csv.writeToFile("result.csv",true);
-    //6th release the engine
+    //5 write the result to csv file
+    CSVWriter csv;
+    csv.enableAutoNewRow(3);
+    csv << "被测图像名称" << "识别结果"<<"得分";
+    for(int i =0; i<testresult.size(); i++)
+    {
+        string fname = testlist.at(i);
+        int idx = testresult.at(i).idx;
+        string resultfname = face_instance.GetFileNameVec().at(idx);
+        float sco = testresult.at(i).score;
+        csv << fname << resultfname << sco;
+    }
+    csv.writeToFile("result.csv",true);
+//    6th release the engine
 
     face_instance.arc_stop();
     return 0;
