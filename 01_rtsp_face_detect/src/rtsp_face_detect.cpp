@@ -13,6 +13,7 @@
 #include <errno.h>
 #include <assert.h>
 #include <iostream>
+#include <sys/time.h>
 
 #include "facedetect.h"
 
@@ -22,6 +23,18 @@
 //#include <opencv2/videoio.hpp>
 //#include <opencv2/highgui.hpp>
 #include "joinus.h"
+
+#define DBG_EN 	1
+#if (DBG_EN == 1)
+#define printf_dbg(...) 	fprintf(stderr, "[main_dbg](%s, %s(), %d): ", __FILE__, __FUNCTION__, __LINE__); fprintf(stderr, __VA_ARGS__)
+#else
+#define printf_dbg(...)
+#endif
+
+#define printf_info(...) 	fprintf(stderr, "[main_info](%s, %s(), %d): ", __FILE__, __FUNCTION__, __LINE__); fprintf(stderr, __VA_ARGS__)
+#define printf_warn(...) 	fprintf(stderr, "[main_warn](%s, %s(), %d): ", __FILE__, __FUNCTION__, __LINE__); fprintf(stderr, __VA_ARGS__)
+#define printf_err(...)  	fprintf(stderr, "[main_err](%s, %s(), %d): ", __FILE__, __FUNCTION__, __LINE__); fprintf(stderr, __VA_ARGS__)
+
 
 using namespace cv;
 using namespace std;
@@ -121,7 +134,15 @@ int main(int argc, char* argv[] ) {
 
     ipc0.facedetect_getversion();
 
-    process(capture);
+    struct timeval start;
+   	struct timeval end;
+   	//struct timezone tz; //后面有说明
+   	gettimeofday(&start,NULL); //gettimeofday(&start,&tz);结果一样
+   	process(capture);
+   	gettimeofday(&end,NULL);
+   	printf_info("Get faces info time elapsed  %f s\n",
+   			((float)(end.tv_sec-start.tv_sec)*1000000+(end.tv_usec-start.tv_usec))/1000000.0);
+
 
     ipc0.facedetect_uninit();
 
